@@ -9,6 +9,7 @@
         "@types/react-dom": "16.8.5",
         "babel-polyfill": "^6.26.0",
         "bootstrap": "^4.3.1",
+        "node-sass": "^4.12.0",
         "express": "^4.17.1",
         "nodemon": "^1.19.1",
         "react": "^16.9.0",
@@ -20,12 +21,11 @@
         "yahoo-stocks": "^2.0.4"
     },
     "scripts": {
-        "client": "npm run compile-styles && react-scripts start",
+        "client": "react-scripts start",
         "server": "npm run-script transpile; nodemon src/server.js",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "compile-styles": "sass src/App.scss src/App.css",
         "transpile": "babel ./src --out-dir ./src --extensions \".ts,.tsx\"",
         "cleanup": "rm -f `find ./src -name \"*.js\"`"
     },
