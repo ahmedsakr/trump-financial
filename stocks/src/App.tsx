@@ -20,11 +20,31 @@ const Header: React.FC = () => {
       <Col
         id="navigation"
         className="text-center p-0"
-        xs={{ span:12 }}
+        xs={{ span: 12 }}
         sm={{ span: 10, offset: 1 }} >
+        
+        <Col
+          className="p-0"
+          xs={{ span: 12 }}
+          sm={{ span: 6 }} >
 
-        <p id="navigation-header-primary">Trump Financial</p>
-        <p id="navigation-header-secondary">Richer Yesterday</p>
+          <img
+            id="navigation-trump"
+            alt="trumpPicture"
+            src={process.env.PUBLIC_URL + "/trump-background.jpg"}/>
+
+        </Col>
+
+        <Col
+          id="navigation-header"
+          className="p-0"
+          xs={{ span: 12 }}
+          sm={{ span: 6 }} >
+          
+          <p id="navigation-header-primary">Trump Financial</p>
+          <p id="navigation-header-secondary">Richer Yesterday</p>
+
+        </Col>
       </Col>
     </>
   )
