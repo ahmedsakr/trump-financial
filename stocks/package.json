@@ -28,6 +28,7 @@
         "transpile": "babel ./src --out-dir ./src --extensions \".ts,.tsx\"",
         "cleanup": "rm -f `find ./src -name \"*.js\"`"
     },
+    "proxy": "http://localhost:5001/",
     "eslintConfig": {
         "extends": "react-app"
     },
