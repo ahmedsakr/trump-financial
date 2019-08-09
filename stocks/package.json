@@ -16,7 +16,8 @@
         "react-dom": "^16.9.0",
         "react-scripts": "3.0.1",
         "socket.io": "^2.2.0",
-        "typescript": "3.5.3"
+        "typescript": "3.5.3",
+        "yahoo-stocks": "^2.0.4"
     },
     "scripts": {
         "client": "npm run compile-styles && react-scripts start",
