@@ -8,6 +8,7 @@
     "@types/react": "16.9.0",
     "@types/react-dom": "16.8.5",
     "bootstrap": "^4.3.1",
+    "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.10",
     "react-dom": "^16.9.0",
@@ -15,11 +16,10 @@
     "typescript": "3.5.3"
   },
   "scripts": {
-    "start": "npm run compile-styles && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "compile-styles": "sass src/App.scss src/App.css"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
