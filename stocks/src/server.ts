@@ -3,6 +3,7 @@ import httpServer from 'http';
 import SocketIO from 'socket.io';
 import { lookup, history } from 'yahoo-stocks';
 import symbols from './snp500'
+import advice from './trump'
 
 let app: Express = express();
 let http: httpServer.Server = new httpServer.Server(app);
@@ -17,10 +18,24 @@ app.get('/server', (_req, res) => {
     res.send({ express: 'The Express Server is Connected to React' });
 });
 
-let number = getRandomInt();
-lookup(symbols[number]).then((response:string) => {
+type Stock = {
+    symbol: string,
+    name: string,
+    exchange: string,
+    currentPrice: number,
+    highPrice: number,
+    lowPrice: number,
+    meanPrice: number,
+    medianPrice: number
+}
+
+lookup(getRandomStock()).then((response:string) => {
     console.log(response)
 });
+
+composeAdvice().then((advice: string) => {
+    console.log(advice);
+})
 
 io.on('connection', (socket: SocketIO.Socket) => {
     console.log('Client Has Connected, id: ' + socket.id)
@@ -39,11 +54,25 @@ function applyTransformation(tweet: string):string {
     return 'sell AMD';
 }
 
-function getRandomInt() {
+function getRandomStock() {
     let min = Math.ceil(0);
     let max = Math.floor(498);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+    let number = Math.floor(Math.random() * (max - min)) + min;
+    return symbols[number];
+}
+
+function getRandomSaying() {
+    let min = Math.ceil(0);
+    let max = Math.floor(14);
+    let number = Math.floor(Math.random() * (max - min)) + min;
+    return advice[number];
+}
+
+async function composeAdvice() {
+    return await lookup(getRandomStock()).then((response:Stock) => {
+        return getRandomSaying() + response.name + ' (' + response.symbol + ') @ $' + response.currentPrice;
+    });
+}
 
 http.listen(port, () => {
     console.log('listening on *:' + port);
