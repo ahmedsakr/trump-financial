@@ -17,14 +17,8 @@ const App: React.FC = () => {
 
                         <Header />
 
-                        <Col
-                            id="tweets-block"
-                            className="mt-5 mt-sm-2 p-0"
-                            xs={12}>
-
-                            <RealTweets url="https://twitter.com/realDonaldTrump" />
-                            <TransformedTweets />
-                        </Col>
+                        <RealTweets url="https://twitter.com/realDonaldTrump" />
+                        <TransformedTweets />
                     </Col>
                 </Row>
             </Container>

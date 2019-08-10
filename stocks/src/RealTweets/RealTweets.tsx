@@ -7,7 +7,10 @@ type RealTweetsProps = {
 
 export const RealTweets: React.FC<RealTweetsProps> = (props: RealTweetsProps) => {
     return (
-        <>
+        <Col
+            id="tweets-block"
+            className="mt-5 mt-sm-2 p-0"
+            xs={12}>
             <Col
                 id="twitter-real-header"
                 xs={12}
@@ -24,7 +27,8 @@ export const RealTweets: React.FC<RealTweetsProps> = (props: RealTweetsProps) =>
                 sm={6}>
 
                 <Col
-                    id="twitter-iframe">
+                    id="twitter-iframe"
+                    className="my-2 pr-0">
 
                     <a
                         className="twitter-timeline"
@@ -32,8 +36,7 @@ export const RealTweets: React.FC<RealTweetsProps> = (props: RealTweetsProps) =>
                     </a>
 
                 </Col>
-
             </Col>
-        </>
+        </Col>
     )
 }
